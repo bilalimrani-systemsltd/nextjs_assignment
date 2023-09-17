@@ -29,14 +29,16 @@ const UpdateProduct = ({
   const handleUpdate = async (e: SyntheticEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    await axios.patch(`/api/products/${product.id}`, {
+    axios.post(`/api/products/updateproduct`, {
+      id: product.id,
       title: title,
       price: Number(price),
       brandId: Number(brand),
-    });
-    setIsLoading(false);
-    router.refresh();
-    setIsOpen(false);
+    }).then(res => {
+      setIsLoading(false);
+      router.refresh();
+      setIsOpen(false);
+    })
   };
 
   const handleModal = () => {

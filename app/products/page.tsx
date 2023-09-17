@@ -6,7 +6,6 @@ import UpdateProduct from "./components/UpdateProduct";
 const prisma = new PrismaClient();
 
 const getProducts = async () => {
-
   let data = await fetch('http://localhost:3000/api/products/getproducts')
   data = await data.json()
   return data;
@@ -43,7 +42,6 @@ const Product = async () => {
               <td>{index + 1}</td>
               <td>{product.title}</td>
               <td>{product.price}</td>
-              <td>{product.brand.name}</td>
               <td className="flex justify-center space-x-1">
                 <UpdateProduct brands={brands} product={product} />
                 <DeleteProduct product={product} />

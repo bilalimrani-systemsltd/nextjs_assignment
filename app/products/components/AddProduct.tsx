@@ -17,21 +17,19 @@ const AddProduct = ({ brands }: { brands: Brand[] }) => {
     e.preventDefault();
     setIsLoading(true);
 
-    const response = await fetch('/api/products/addproduct', {
-    method: "POST",
-    body: JSON.stringify({
+  axios.post('/api/products/addproduct', {
       title: title,
       price: Number(price),
       brandId: Number(brand),
+    }).then(res => {
+    setIsLoading(false);
+      setTitle("");
+      setPrice("");
+      setBrand("");
+      router.refresh();
+      setIsOpen(false);
     })
-  });
-  console.log('response', response)
-   setIsLoading(false);
-    setTitle("");
-    setPrice("");
-    setBrand("");
-    router.refresh();
-    setIsOpen(false);
+ 
    
   };
 
