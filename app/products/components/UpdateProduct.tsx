@@ -14,10 +14,7 @@ type Product = {
 const UpdateProduct = ({
   brands,
   product,
-}: {
-  brands: Brand[];
-  product: Product;
-}) => {
+}: any) => {
   const [title, setTitle] = useState(product.title);
   const [price, setPrice] = useState(product.price);
   const [brand, setBrand] = useState(product.brandId);
@@ -82,7 +79,7 @@ const UpdateProduct = ({
                 onChange={(e) => setBrand(Number(e.target.value))}
                 className="select select-bordered"
               >
-                {brands.map((brand) => (
+                {brands.map((brand: any) => (
                   <option value={brand.id} key={brand.id}>
                     {brand.name}
                   </option>

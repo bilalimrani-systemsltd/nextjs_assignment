@@ -4,7 +4,7 @@ import type { Brand } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 
-const AddProduct = ({ brands }: { brands: Brand[] }) => {
+const AddProduct = ({ brands }: any) => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [brand, setBrand] = useState("");
@@ -77,7 +77,7 @@ const AddProduct = ({ brands }: { brands: Brand[] }) => {
                 <option value="" disabled>
                   Select a Brand
                 </option>
-                {brands.map((brand) => (
+                {brands.map((brand: any) => (
                   <option value={brand.id} key={brand.id}>
                     {brand.name}
                   </option>
