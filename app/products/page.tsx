@@ -1,5 +1,4 @@
 import { PrismaClient } from "@prisma/client";
-import axios from "axios";
 import Link from "next/link";
 import AddProduct from "./components/AddProduct";
 import DeleteProduct from "./components/DeleteProduct";
@@ -19,8 +18,8 @@ const getBrands = async () => {
 };
 
 const Product = async () => {
-  const [products, brands] = await Promise.all([getProducts(), getBrands()]);
-console.log('products', products)
+  const [products, brands]: any = await Promise.all([getProducts(), getBrands()]);
+
   return (
     <div>
       <div className="mb-2">
